@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falling Petals Animation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(to bottom, #ffdde1, #ee9ca7); /* Soft pink gradient */
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+      
+
+        .petal {
+            position: absolute;
+            width: 40px; /* Adjust size */
+            height: auto;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+    <script>
+        function createPetal() {
+            const petal = document.createElement("img");
+            petal.src = "petals.jpeg"; // Replace with your petal image
+            petal.classList.add("petal");
+
+            let size = Math.random() * 30 + 20; // Random petal size
+            petal.style.width = `${size}px`;
+
+            petal.style.left = Math.random() * window.innerWidth + "px"; // Random starting position
+            petal.style.animationDuration = Math.random() * 5 + 1 + "s"; // Random speed
+            petal.style.animationDelay = Math.random() * 2 + 0; // Random delay
+
+            document.body.appendChild(petal);
+
+            // Remove the petal after animation ends
+            setTimeout(() => {
+                petal.remove();
+            }, 8000);
+        }
+
+        setInterval(createPetal, 500); // Generate petals every 500ms
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+/* .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+} */
+ 
+ .carousel-item img {
+    height: 400px;
+    object-fit: cover;
+}
+main{
+    background-color: rgb(73, 134, 248);
+}
+
+
+.petal {
+    position: absolute;
+    
+    width:40px; 
+    height: auto;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
